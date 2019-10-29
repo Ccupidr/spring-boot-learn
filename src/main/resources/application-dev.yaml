@@ -1,0 +1,22 @@
+#family:
+#  family-name: 'happly family'
+#  father:
+#    name: whr
+#    age: 20
+#  mother:
+#    alias:
+#      - lovely
+#      - ailice
+#  child:
+#    name: xy
+#    age: 5
+#    firends:
+#      - hobby: football
+#        sex: male
+#      - hobby: basketball
+#        sex: female
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
