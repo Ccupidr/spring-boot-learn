@@ -14,7 +14,7 @@ import java.util.List;
 @JsonPropertyOrder(value = {"author","content","title"}) // 自定义排序
 @AllArgsConstructor
 @NoArgsConstructor
-public class Article {
+public class ArticleVO {
     /**
      * id : 1
      * author : zimug

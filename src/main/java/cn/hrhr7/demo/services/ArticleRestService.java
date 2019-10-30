@@ -1,19 +1,17 @@
 package cn.hrhr7.demo.services;
 
+import cn.hrhr7.demo.model.ArticleVO;
 
-import cn.hrhr7.demo.model.Article;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Slf4j
-@Service
-public class ArticleRestService {
+public interface ArticleRestService {
+    ArticleVO saveArticle(ArticleVO article);
 
+    void deleteArticle(Integer id);
 
-    public String saveArticle(Article article){
+    void updateArticle(ArticleVO article);
 
-        log.info("Service save {}", article);
-        return "service test";
-    }
+    ArticleVO getArticle(Integer id);
 
+    List<ArticleVO> getAll();
 }
