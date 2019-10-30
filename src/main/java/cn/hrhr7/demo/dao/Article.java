@@ -19,7 +19,7 @@ public class Article {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(nullable = false,length = 32)
     private String author;
@@ -30,7 +30,7 @@ public class Article {
     @Column(length = 512)
     private String content;
 
-    private Date createTime;
+    private String createTime;
 
 
 }
