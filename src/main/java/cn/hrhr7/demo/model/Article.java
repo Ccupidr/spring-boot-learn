@@ -24,16 +24,14 @@ public class Article {
      * reader : [{"name":"zimug","age":18},{"name":"kobe","age":37}]
      */
 
-    @JsonIgnore
     private int id;
 
     private String author;
     private String title;
     private String content;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
 
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private String createTime;
 
     private List<Reader> reader;

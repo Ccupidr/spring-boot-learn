@@ -5,15 +5,20 @@ import cn.hrhr7.demo.model.Article;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@Slf4j
+import java.util.List;
+
+
 @Service
-public class ArticleRestService {
+public interface ArticleRestService {
 
+    public Article saveArticle(Article article);
 
-    public String saveArticle(Article article){
+    public void deleteArticle(int id);
 
-        log.info("Service save {}", article);
-        return "service test";
-    }
+    public void updateArticle(Article article);
 
+    public Article getArticle(int id);
+
+    public List<Article> getAll();
 }
+
