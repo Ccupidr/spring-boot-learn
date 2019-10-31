@@ -1,4 +1,4 @@
-package cn.hrhr7.demo.dao;
+package cn.hrhr7.demo.jpa.testdb;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

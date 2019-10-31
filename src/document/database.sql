@@ -8,3 +8,4 @@ CREATE TABLE `article` (
 )
 COMMENT='文章'
 ENGINE=InnoDB;
+

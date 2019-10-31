@@ -1,7 +1,7 @@
 package cn.hrhr7.demo.services;
 
-import cn.hrhr7.demo.dao.Article;
-import cn.hrhr7.demo.dao.ArticleRepository;
+import cn.hrhr7.demo.jpa.testdb.Article;
+import cn.hrhr7.demo.jpa.testdb.ArticleRepository;
 import cn.hrhr7.demo.model.ArticleVO;
 
 import javax.annotation.Resource;

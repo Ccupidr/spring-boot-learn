@@ -1,7 +1,8 @@
 package cn.hrhr7.demo.controller;
 
 
-import cn.hrhr7.demo.dao.Article;
+import cn.hrhr7.demo.jpa.testdb2.Message;
+import cn.hrhr7.demo.jpa.testdb2.MessageRepository;
 import cn.hrhr7.demo.model.AjaxResponse;
 import cn.hrhr7.demo.model.ArticleVO;
 import cn.hrhr7.demo.services.ArticleRestService;
@@ -21,6 +22,9 @@ public class ArticleRestController {
     @Resource(name = "ArticleRestServiceImp")
     ArticleRestService articleRestService;
 
+    @Resource
+    MessageRepository messageRepository;
+
     @RequestMapping(value = "/articles", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody  AjaxResponse saveArticle(@RequestBody ArticleVO articleVO){
 
@@ -29,7 +33,14 @@ public class ArticleRestController {
         articleVO.setCreateTime(dateFormat.format(date));
         articleRestService.saveArticle(articleVO);
 
+        // 操作message
+        Message message = new Message();
+        message.setName("henuwhr");
+        message.setContent("working at hyperchain");
+        messageRepository.save(message);
+
         log.info("save article: {}", articleVO);
+        log.info("save message: {}",message);
 
         return AjaxResponse.success(articleVO);
     }
