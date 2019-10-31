@@ -79,6 +79,10 @@
 			</exclusions>
 		</dependency>
 <!--//https://blog.csdn.net/AYZXX/article/details/90230203-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jta-atomikos</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

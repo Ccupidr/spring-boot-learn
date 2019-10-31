@@ -2,6 +2,8 @@ package cn.hrhr7.demo.services;
 
 import cn.hrhr7.demo.jpa.testdb.Article;
 import cn.hrhr7.demo.jpa.testdb.ArticleRepository;
+import cn.hrhr7.demo.jpa.testdb2.Message;
+import cn.hrhr7.demo.jpa.testdb2.MessageRepository;
 import cn.hrhr7.demo.model.ArticleVO;
 
 import javax.annotation.Resource;
@@ -11,12 +13,17 @@ import java.util.Optional;
 import cn.hrhr7.demo.utils.DozerUtils;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional //事务生命，出现错误回滚
 @Service(value = "ArticleRestServiceImp")
 public class ArticleRestServiceImp implements ArticleRestService {
 
-    @Resource
+    @Resource(name = "articleRepository")
     private ArticleRepository articleRepository;
+
+    @Resource
+    private MessageRepository messageRepository;
 
     @Resource
     private Mapper dozerMapper;
@@ -25,6 +32,8 @@ public class ArticleRestServiceImp implements ArticleRestService {
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article,Article.class);
         articleRepository.save(articlePO);
+        messageRepository.save(new Message(2,"whr","学spring boot"));
+        int makeError = 2 / 0; // 制造错误，看数据库是否提交成功
         return article;
     }
 
